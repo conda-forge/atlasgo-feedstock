@@ -1,4 +1,4 @@
-{% set version = "0.21.1" %}
+{% set version = "0.22.0" %}
 
 package:
   name: atlasgo
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/ariga/atlas/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: eb35bf79613d1bba10df482cf688a0c5a139e8834f4ab65747cd2b63cbe610ae
+  sha256: 410696021a098bb949c3d91f89df295bd8cc98fa7f51c43a8a4c959f6e9fe7c3
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
