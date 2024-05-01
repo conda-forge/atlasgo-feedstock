@@ -9,6 +9,7 @@ source:
   sha256: 410696021a098bb949c3d91f89df295bd8cc98fa7f51c43a8a4c959f6e9fe7c3
 
 build:
+  skip: true  # [win]
   number: 0
 
 requirements:
@@ -16,7 +17,6 @@ requirements:
     - {{ compiler('c') }}      # [unix]
     - {{ stdlib('c') }}        # [unix]
     - {{ compiler('go-cgo') }} >=1.21
-    - m2w64-libwinpthread-git  # [win]
     - go-licenses
 
 test:
