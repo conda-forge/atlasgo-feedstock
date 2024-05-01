@@ -13,9 +13,8 @@ build:
 
 requirements:
   build:
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ stdlib('c') }}          # [unix]
+    - {{ compiler('c') }}  # [unix]
+    - {{ stdlib('c') }}    # [unix]
     - {{ compiler('go-cgo') }} >=1.21
     - go-licenses
 
