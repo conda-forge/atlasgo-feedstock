@@ -7,6 +7,9 @@ package:
 source:
   url: https://github.com/ariga/atlas/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 33fc874bd5c155f7d1a88a36efd0a431bc4eaa41ca0602684bc7259538453f60
+  patches:
+    # NOTE: Required to circumvent issues with the atlas SDK (cf. https://github.com/ariga/atlas-go-sdk/pull/66).
+    - patches/001-remove-unofficial-string.patch
 
 build:
   skip: true  # [win]
