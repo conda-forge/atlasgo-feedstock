@@ -1,0 +1,18 @@
+commit 12bfb6ac70338612f94f6c618016cddb34c1d213
+Author: Oliver Borchert <me@borchero.com>
+Date:   Sun Jun 16 20:12:29 2024 +0200
+
+    Remove 'unofficial' from version string
+
+diff --git a/cmd/atlas/internal/cmdapi/version_oss.go b/cmd/atlas/internal/cmdapi/version_oss.go
+index 2da8a4d1..56ca6fc3 100644
+--- a/cmd/atlas/internal/cmdapi/version_oss.go
++++ b/cmd/atlas/internal/cmdapi/version_oss.go
+@@ -7,6 +7,6 @@
+ package cmdapi
+ 
+ const (
+-	versionFmt  = "atlas unofficial "
++	versionFmt  = "atlas "
+ 	versionInfo = "To download an official version, visit: https://atlasgo.io/getting-started#installation\n"
+ )
