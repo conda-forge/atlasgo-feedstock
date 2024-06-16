@@ -21,7 +21,7 @@ requirements:
 
 test:
   commands:
-    - atlas version
+    - atlas version | grep "atlas version v{{ version }}"
     - atlas --help
 
 about:

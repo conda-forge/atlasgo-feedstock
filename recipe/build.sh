@@ -13,6 +13,9 @@ go-licenses save . \
     --ignore github.com/libsql/sqlite-antlr4-parser \
     --ignore $(go list std | awk 'NR > 1 { printf(",") } { printf("%s",$0) } END { print "" }')
 
+# NOTE: This is not an official build but we set the tag nonetheless to circumvent current issues
+#       with the atlas SDK (cf. https://github.com/ariga/atlas-go-sdk/pull/66).
 go build -v \
+    -tags "official" \
     -ldflags "-s -w -X 'ariga.io/atlas/cmd/atlas/internal/cmdapi.version=v$PKG_VERSION'" \
     -o $PREFIX/bin/atlas
