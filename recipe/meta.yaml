@@ -1,4 +1,4 @@
-{% set version = "0.24.1" %}
+{% set version = "0.25.0" %}
 
 package:
   name: atlasgo
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/ariga/atlas/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: f89f37a4d8348cfe26b571a36e2f05e328e570a9ccace80497e31e9299ab5b65
+  sha256: fbb385185c9c1576c2350d483bc624409904b8ee63db0950b84a4115e991bfd8
   patches:
     # NOTE: Required to circumvent issues with the atlas SDK (cf. https://github.com/ariga/atlas-go-sdk/pull/66).
     - patches/001-remove-unofficial-string.patch
