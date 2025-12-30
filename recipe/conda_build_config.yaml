@@ -1,5 +1,5 @@
 c_stdlib_version:
-  - 12.0   # [osx and x86]
+  - 12.3   # [osx]
   - 2.17   # [linux]
 MACOSX_SDK_VERSION:
-  - 12.0   # [osx and x86_64]
+  - 12.3   # [osx]
