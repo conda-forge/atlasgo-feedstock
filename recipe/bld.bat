@@ -5,7 +5,8 @@ cd cmd/atlas
 go-licenses save . ^
     --save_path ../../library_licenses ^
     --ignore ariga.io/atlas ^
-    --ignore github.com/libsql/sqlite-antlr4-parser
+    --ignore github.com/libsql/sqlite-antlr4-parser ^
+    --ignore github.com/jmespath/go-jmespath
 
 go install -v ^
     -ldflags "-X 'ariga.io/atlas/cmd/atlas/internal/cmdapi.version=v%PKG_VERSION%'" ^
