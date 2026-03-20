@@ -11,12 +11,13 @@ source:
   patches:
     # NOTE: Required to circumvent issues with the atlas SDK (cf. https://github.com/ariga/atlas-go-sdk/pull/66).
     - patches/001-remove-unofficial-string.patch
-    # NOTE: Required to bump vulnerable peer dependency go.opentelemetry.io/otel/sdk to >= 1.40.0
-    # xref: https://pkg.go.dev/vuln/GO-2026-4394
+    # NOTE: Required to bump vulnerable peer dependencies:
+    # - google.golang.org/grpc to >= 1.79.3 (GHSA-p77j-4mvh-x3m3)
+    # - go.opentelemetry.io/otel/sdk to >= 1.39.0 (GO-2026-4394)
     - patches/002-bump-vulnerable-deps.patch
 
 build:
-  number: 1
+  number: 2
   skip: ${{ win }}
   script:
     - cd cmd/atlas
