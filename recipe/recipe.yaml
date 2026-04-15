@@ -1,5 +1,5 @@
 context:
-  version: "1.1.0"
+  version: "1.2.0"
 
 package:
   name: atlasgo
@@ -7,28 +7,18 @@ package:
 
 source:
   url: https://github.com/ariga/atlas/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: ab15ecd8ad713ff8edbb3cdfd6025417ee3bc539f1594431ed744b0b16102e55
-  patches:
-    # NOTE: Required to circumvent issues with the atlas SDK (cf. https://github.com/ariga/atlas-go-sdk/pull/66).
-    - patches/001-remove-unofficial-string.patch
-    # NOTE: Required to bump vulnerable peer dependencies:
-    # - google.golang.org/grpc to >= 1.79.3 (GHSA-p77j-4mvh-x3m3)
-    # - go.opentelemetry.io/otel/sdk to >= 1.39.0 (GO-2026-4394)
-    - patches/002-bump-vulnerable-deps.patch
+  sha256: 0968b685458da1f414d3a8d09fe7ee9a3359906fade36fe787369c40d757f2fe
 
 build:
-  number: 2
+  number: 0
   skip: ${{ win }}
   script:
     - cd cmd/atlas
     # NOTE: github.com/libsql/sqlite-antlr4-parser is generated and does not include a license.
     #       Licenses for ANTLR4 projects are already included for other dependencies.
     # Last ignore line is a workaround for https://github.com/google/go-licenses/issues/244
-    - go-licenses save . --save_path ../../library_licenses --ignore ariga.io/atlas --ignore
-      github.com/libsql/sqlite-antlr4-parser --ignore github.com/jmespath/go-jmespath --ignore $(go
-      list std | awk 'NR > 1 { printf(",") } { printf("%s",$0) } END { print "" }')
-    - go build -v -ldflags "-s -w -X
-      'ariga.io/atlas/cmd/atlas/internal/cmdapi.version=v$PKG_VERSION'" -o $PREFIX/bin/atlas
+    - go-licenses save . --save_path ../../library_licenses --ignore ariga.io/atlas --ignore github.com/libsql/sqlite-antlr4-parser --ignore github.com/jmespath/go-jmespath --ignore $(go list std | awk 'NR > 1 { printf(",") } { printf("%s",$0) } END { print "" }')
+    - go build -v -ldflags "-s -w -X 'ariga.io/atlas/cmd/atlas/internal/cmdapi.version=v$PKG_VERSION'" -o $PREFIX/bin/atlas
 
 requirements:
   build:
@@ -39,7 +29,8 @@ requirements:
 
 tests:
   - script:
-      - atlas version | grep "atlas version v${{ version }}"
+      - atlas version
+      - atlas version | grep "v${{ version }}"
       - atlas --help
 
 about:
