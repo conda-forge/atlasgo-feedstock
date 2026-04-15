@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/ariga/atlas/archive/refs/tags/v${{ version }}.tar.gz
   sha256: 0968b685458da1f414d3a8d09fe7ee9a3359906fade36fe787369c40d757f2fe
-  patches:
-    # NOTE: Required to circumvent issues with the atlas SDK (cf. https://github.com/ariga/atlas-go-sdk/pull/66).
 
 build:
   number: 0
