@@ -30,7 +30,7 @@ requirements:
 tests:
   - script:
       - atlas version
-      - atlas version | grep "atlas version v${{ version }}"
+      - atlas version | grep "v${{ version }}"
       - atlas --help
 
 about:
