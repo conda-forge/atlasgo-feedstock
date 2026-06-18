@@ -10,7 +10,7 @@ source:
   sha256: 2710bda0aaf95df0ae896bf9124e97f407ee5f3bda22855999fbb367748b87fc
 
 build:
-  number: 0
+  number: 1
   skip: ${{ win }}
   script:
     - cd cmd/atlas
@@ -24,7 +24,7 @@ requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - ${{ compiler('go-cgo') }} >=1.26.1
+    - ${{ compiler('go-cgo') }} >=1.26.4
     - go-licenses
 
 tests:
